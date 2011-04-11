@@ -1,0 +1,27 @@
+---
+layout: page
+title: Blogs - Pierce
+feed: /pierce/atom.xml
+css:
+ - blog.css
+---
+
+<h1>{{ page.title }}</h1>
+
+<div class="blog">
+{% for post in site.categories.pierce limit:5 %}
+  <div class="post">
+    <h1 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+    <p class="post-header">
+      published on {{ post.date }} by
+      <a href="mailto:pierce at-symbol sophsec.com">pierce</a>
+    </p>
+
+    <div class="post-content">
+      {{ post.content }}
+    </div>
+  </div>
+{% endfor %}
+
+  <p><a href="archive.html">Archive</a></p>
+</div>

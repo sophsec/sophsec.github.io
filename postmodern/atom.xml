@@ -1,0 +1,27 @@
+---
+permalink: atom.xml
+layout: nil
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SophSec Instrusion Labs - Blogs - Postmodern</title>
+  <link href="http://sophsec.com/postmodern/atom.xml" rel="self" />
+  <link href="http://sophsec.com/postmodern/" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <author>
+    <name>postmodern</name>
+    <email>postmodern@sophsec.com</email>
+    <uri>http://sophsec.com/postmodern/</uri>
+  </author>
+  <id>http://sophsec.com/postmodern/</id>
+  {% for post in site.categories.postmodern %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="http://sophsec.com{{ post.url }}" />
+    <updated>{{ post.date | date_to_xmlchema }}</updated>
+    <id>http://sophsec.com{{ post.url }}</id>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>

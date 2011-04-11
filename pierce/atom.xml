@@ -1,0 +1,27 @@
+---
+permalink: atom.xml
+layout: nil
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SophSec Instrusion Labs - Blogs - Pierce</title>
+  <link href="http://sophsec.com/pierce/atom.xml" rel="self" />
+  <link href="http://sophsec.com/pierce/" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <author>
+    <name>pierce</name>
+    <email>pierce@sophsec.com</email>
+    <uri>http://sophsec.com/pierce/</uri>
+  </author>
+  <id>http://sophsec.com/pierce/</id>
+  {% for post in site.categories.pierce %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="http://sophsec.com{{ post.url }}" />
+    <updated>{{ post.date | date_to_xmlchema }}</updated>
+    <id>http://sophsec.com{{ post.url }}</id>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>

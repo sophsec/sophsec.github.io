@@ -1,0 +1,19 @@
+---
+layout: page
+css:
+ - blog.css
+---
+
+<h1>{{ post.title }}</h1>
+
+<div class="post">
+  <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+  <p class="post-header">
+    published on {{ page.date }} by
+    <a href="mailto:postmodern at-symbol sophsec.com">postmodern</a>
+  </p>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+</div>

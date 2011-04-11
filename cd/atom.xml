@@ -1,0 +1,27 @@
+---
+permalink: atom.xml
+layout: nil
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SophSec Instrusion Labs - Blogs - CD</title>
+  <link href="http://sophsec.com/cd/atom.xml" rel="self" />
+  <link href="http://sophsec.com/cd/" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <author>
+    <name>cd</name>
+    <email>cd@sophsec.com</email>
+    <uri>http://sophsec.com/cd/</uri>
+  </author>
+  <id>http://sophsec.com/cd/</id>
+  {% for post in site.categories.cd %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="http://sophsec.com{{ post.url }}" />
+    <updated>{{ post.date | date_to_xmlchema }}</updated>
+    <id>http://sophsec.com{{ post.url }}</id>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>

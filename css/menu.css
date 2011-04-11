@@ -1,0 +1,26 @@
+div.menu {
+	margin: 1em;
+	height: 100%;
+	border: 1px solid white;
+}
+
+div.menu ul {
+	margin: 0;
+	padding: 1em 2em 1em 2em;
+	list-style: none;
+}
+
+div.menu li {
+	margin: 0;
+	padding: 0.5em 0 0.5em 0;
+}
+
+div.menu a {
+	color: white;
+	text-decoration: none;
+}
+
+div.menu a:hover {
+	color: #0058d0;
+	text-decoration: none;
+}

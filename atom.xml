@@ -1,0 +1,28 @@
+---
+permalink: atom.xml
+layout: nil
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SophSec Instrusion Labs</title>
+  <link href="http://sophsec.com/atom.xml" rel="self" />
+  <link href="http://sophsec.com/" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://sophsec.com/</id>
+  {% for post in site.posts %}
+  {% assign author = post.categories.first %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="http://sophsec.com{{ post.url }}" />
+    <updated>{{ post.date | date_to_xmlchema }}</updated>
+    <author>
+      <name>{{ author }}</name>
+      <email>{{ author }}@sophsec.com</email>
+      <uri>http://sophsec.com/{{ author }}/</uri>
+    </author>
+    <id>http://sophsec.com{{ post.url }}</id>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>
