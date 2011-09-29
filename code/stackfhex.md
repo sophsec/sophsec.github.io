@@ -17,6 +17,6 @@ push expressions.
 
 ## Downloads
 
-* [v0.1a](/downloads/code/stackfhex.c)
+* [v0.1a](stackfhex.c)
   * md5: 6c1e82cfeb3cb6a675b8be7f54d6053c
 

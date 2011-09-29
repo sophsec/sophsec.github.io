@@ -16,6 +16,6 @@ you're doing it wrong.
 
 ## Downloads
 
-* [v1.0](/downloads/code/joomla-not_as_ghey.py)
+* [v1.0](joomla-not_as_ghey.py)
   * sha1: 295185703a1c306b48dff0b4b1de8bf289acb96f
 

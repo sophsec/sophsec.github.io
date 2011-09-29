@@ -15,6 +15,6 @@ Requires [GScraper](http://gscraper.rubyforge.org/) >= 0.1.7.
 
 ## Downloads
 
-* [v1.0](/downloads/code/opfind.c)
+* [v1.0](opfind.c)
   * md5: ebfa9d5ee321ffc4cc83d22b02d1d6d0
 

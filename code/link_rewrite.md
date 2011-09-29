@@ -15,6 +15,6 @@ specified link prefix. Requires [jQuery](http://jquery.com/).
 
 ## Downloads
 
-* [v1.0](/downloads/code/link_rewrite.js)
+* [v1.0](link_rewrite.js)
   * sha1: 57fd8f7b88483114d36b9a2ed5b50f5f0f35ed47
 

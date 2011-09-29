@@ -15,6 +15,6 @@ Useful if you don't have aespipe installed.
 
 ## Downloads
 
-* [v1.0](/downloads/code/aes_pipe.rb)
+* [v1.0](aes_pipe.rb)
   * sha1: f14c8247582ab04bdedbadebf029cc2fd48b26d7
 

@@ -17,6 +17,6 @@ offsets in a binary/dll for ret-to-location style exploitation.
 
 ## Downloads
 
-* [v1.0](/downloads/code/opfind.c)
+* [v1.0](opfind.c)
   * md5: ebfa9d5ee321ffc4cc83d22b02d1d6d0
 

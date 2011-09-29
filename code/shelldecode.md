@@ -16,6 +16,6 @@ asm for the ops. Uses libdisasm for heavy lifting. Seriously trivial, infinitely
 
 ## Downloads
 
-* [v0.0.0.0.0.0.0a](/downloads/code/shelldecode.c)
+* [v0.0.0.0.0.0.0a](shelldecode.c)
   * md5: 9a436d3fbaeb093787f7900b5185c5ad
 

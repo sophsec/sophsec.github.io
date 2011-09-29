@@ -16,6 +16,6 @@ media/browser exploits.
 
 ## Downloads
 
-* [v007](/downloads/code/servHttpFile.c)
+* [v007](servHttpFile.c)
   * md5: 9d2783007d0b807e2a2a1313424602b9
 

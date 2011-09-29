@@ -17,6 +17,6 @@ Following that is a book-example stack overflow.
 
 ## Downloads
 
-* [v0.01](/downloads/code/grimecreeper.c)
+* [v0.01](grimecreeper.c)
   * md5: 093f5f950a308a7ed9cafe30b8945200
 
