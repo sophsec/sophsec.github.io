@@ -14,7 +14,7 @@ specifically for botnets.
 Talks:
 
 * [ToorCon Seattle (Beta)](http://seattle.toorcon.org/talks.php?id=12) 
-  [[ODP](/downloads/talks/libomg_toorcon_talk.odp)].
+  [[ODP](http://github.com/downloads/sophsec/sophsec.github.com/libomg_toorcon_talk.odp)].
 
 [Wordlist](http://github.com/sophsec/wordlist) -
 A Ruby library for generating and working with wordlists. Supports building
