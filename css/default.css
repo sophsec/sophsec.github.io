@@ -1,6 +1,6 @@
+/* @group Common */
+
 body {
-	width: 80%;
-	margin: 0 auto 0 auto;
 	color: white;
 	background-color: #202020;
 	font-family: sans-serif;
@@ -26,25 +26,54 @@ span.underlined {
 	text-decoration: underline;
 }
 
+/* @end */
+
+/* @group header */
+
 #banner {
-	float: left;
+	clear: both;
 	width: 100%;
 	padding: 0;
 	margin: 20px 0 20px 0;
 	background-color: #202020;
 }
 
-#page {
-	float: left;
+/* @end */
+
+/* @group Menu */
+
+div.menu {
+	margin: 1em;
+	height: 100%;
+	border: 1px solid white;
 }
 
-#sidebar {
-	float: left;
+div.menu ul {
+	margin: 0;
+	padding: 1em 2em 1em 2em;
+	list-style: none;
 }
+
+div.menu li {
+	margin: 0;
+	padding: 0.5em 0 0.5em 0;
+}
+
+div.menu a {
+	color: white;
+	text-decoration: none;
+}
+
+div.menu a:hover {
+	color: #0058d0;
+	text-decoration: none;
+}
+
+/* @end */
+
+/* @group Content */
 
 #content {
-	width: 40em;
-	margin: 0 auto 0 150px;
 	padding: 20px;
 	color: white;
 	background-color: #2a2a2a;
@@ -112,15 +141,7 @@ span.underlined {
 	border: 2px solid white;
 }
 
-#footer {
-	clear: both;
-	padding: 5px;
-	color: gray;
-	text-align: center;
-	font-size: x-small;
-}
-
-div.note {
+#content div.note {
 	clear: right;
 	margin: 0.5em;
 	padding: 0.5em;
@@ -129,7 +150,7 @@ div.note {
 	border: 2px solid green;
 }
 
-div.warning {
+#content div.warning {
 	clear: right;
 	margin: 0.5em;
 	padding: 0.5em;
@@ -138,7 +159,7 @@ div.warning {
 	border: 2px solid red;
 }
 
-div.footnote {
+#content div.footnote {
 	clear: right;
 	margin: 0.6em;
 	padding: 0.6em;
@@ -146,3 +167,69 @@ div.footnote {
 	font-size: 0.8em;
 	font-weight: normal;
 }
+
+/* @end */
+
+/* @group Blog */
+
+div.post > h2.post-title {
+	border-bottom: 1px dotted gray;
+}
+
+div.post > p.post-header {
+	margin: 0;
+	padding: 0;
+	color: gray;
+	font-size: x-small;
+}
+
+div.post > div.post-content {
+	margin: 1em;
+}
+
+/* @end */
+
+/* @group Downloads */
+
+div.download {
+	margin: 0.5em 0 0.5em 0;
+}
+
+div.download > table.download-header {
+	margin: 0;
+	padding: 0;
+}
+
+div.download > table.download-header > td {
+	margin: 0;
+	padding: 0;
+}
+
+div.download > span.download-info {
+	font-weight: bold;
+}
+
+div.download > ul.download-metadata {
+	margin: 0.25em 0 0.25em 0;
+	padding: 0;
+	list-style: none;
+}
+
+div.download > ul.download-metadata > li {
+	padding: 0;
+	margin: 0.25em 0 0.25em 0;
+}
+
+/* @end */
+
+/* @group Footer */
+
+#footer {
+	clear: both;
+	padding: 5px;
+	color: gray;
+	text-align: center;
+	font-size: x-small;
+}
+
+/* @end */
