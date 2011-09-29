@@ -1,2 +1,3 @@
+server: true
 markdown: rdiscount
 permalink: date
