@@ -8,7 +8,7 @@ title: Random
 ## Blogs we Read
 
 * [hard hack](http://wiretrip.net/hardhack/)
-* [house of postmodern](http://houseofpostmodern.wordpress.com/)
+* [postmodern's blog](http://postmodern.github.com/)
 * [drraid's infoshit rants](http://drraid.blogspot.com/)
 * [click-death-squad](http://nsagets.no-ip.info/)
 * [dont stuff beans up your nose](http://www.dontstuffbeansupyournose.com/)
