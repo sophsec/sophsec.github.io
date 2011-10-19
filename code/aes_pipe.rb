@@ -81,31 +81,29 @@ module SophSec
     #   end
     #
     def initialize(options={},&block)
-      @mode = (options[:mode] || :encrypt).to_sym
-      @block_size = (options[:block_size] || DEFAULT_BLOCK_SIZE).to_i
-      @key_size = (options[:key_size] || DEFAULT_KEY_SIZE).to_i
-      @iv = (options[:iv] || DEFAULT_IV).to_s
-      @hash = (options[:hash] || DEFAULT_HASH).to_s.downcase
-      @key = options[:key]
+      @mode       = options.fetch(:mode,:encrypt).to_sym
+      @block_size = options.fetch(:block_size,DEFAULT_BLOCK_SIZE).to_i
+      @key_size   = options.fetch(:key_size,DEFAULT_KEY_SIZE).to_i
+      @iv         = options.fetch(:iv,DEFAULT_IV).to_s
+      @hash       = options.fetch(:hash,DEFAULT_HASH).to_s.downcase
+      @key        = if options[:key]
+                      options[:key].to_s
+                    elsif (password = options[:password])
+                      begin
+                        Digest.const_get(@hash.upcase).hexdigest(password)
+                      rescue RuntimeError => e
+                        raise(InvalidHash,"invalid hash name #{@hash.dump}")
+                      end
+                    end
 
-      if options[:key]
-        @key = options[:key].to_s
-      elsif (password = options[:password])
-        begin
-          @key = Digest.const_get(@hash.upcase).hexdigest(password)
-        rescue RuntimeError => e
-          raise(InvalidHash,"invalid hash name #{@hash.dump}",caller)
-        end
-      end
-
-      block.call(self) if block
+      yield self if block_given?
     end
 
     #
     # Returns a new AES cipher object. If a _block_ is given it will be
     # passed the newly created cipher.
     #
-    def cipher(&block)
+    def cipher
       aes = OpenSSL::Cipher::Cipher.new("aes-#{@key_size}-cbc")
 
       case @mode
@@ -114,13 +112,13 @@ module SophSec
       when :decrypt
         aes.decrypt
       else
-        raise(InvalidMode,"invalid mode #{@mode}",caller)
+        raise(InvalidMode,"invalid mode #{@mode}")
       end
 
       aes.key = @key
       aes.iv = @iv
 
-      block.call(aes) if block
+      yield aes if block_given?
       return aes
     end
 
@@ -130,7 +128,7 @@ module SophSec
     # specified _block_ will be passed each block of data from the stream.
     # Once the _block_ has returned the input stream will be closed.
     #
-    def process_input(file=nil,&block)
+    def process_input(file=nil)
       input = if file
                 File.new(file.to_s)
               else
@@ -141,7 +139,7 @@ module SophSec
         text = input.read(@block_size)
         break unless text
 
-        block.call(text)
+        yield text
       end
 
       input.close
@@ -155,14 +153,14 @@ module SophSec
     # Once the _block_ has returned the output stream will be flushed and
     # closed.
     #
-    def process_output(file=nil,&block)
+    def process_output(file=nil)
       output = if file
                  File.new(file.to_s,'w')
                else
                  STDOUT
                end
 
-      block.call(output) if block
+      yield output if block_given?
 
       output.flush
       output.close
@@ -172,13 +170,13 @@ module SophSec
   end
 end
 
-if File.basename($0)=='aes_pipe.rb'
+if File.basename($0) == __FILE__
   require 'optparse'
 
   include SophSec
 
-  options = {}
-  input_file = nil
+  options     = {}
+  input_file  = nil
   output_file = nil
 
   opts = OptionParser.new do |opts|
