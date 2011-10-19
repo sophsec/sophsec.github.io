@@ -131,11 +131,11 @@ module SophSec
     # Once the _block_ has returned the input stream will be closed.
     #
     def process_input(file=nil,&block)
-      if @file
-        input = File.new(file.to_s)
-      else
-        input = STDIN
-      end
+      input = if file
+                File.new(file.to_s)
+              else
+                STDIN
+              end
 
       loop do
         text = input.read(@block_size)
@@ -156,11 +156,11 @@ module SophSec
     # closed.
     #
     def process_output(file=nil,&block)
-      if @file
-        output = File.new(file.to_s,'w')
-      else
-        output = STDOUT
-      end
+      output = if file
+                 File.new(file.to_s,'w')
+               else
+                 STDOUT
+               end
 
       block.call(output) if block
 
